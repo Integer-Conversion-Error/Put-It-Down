@@ -83,12 +83,12 @@ WINDOW_NAME = 'Put It Down Detector'
 def on_pitch_thresh_trackbar(val):
     global current_pitch_threshold
     current_pitch_threshold = float(val) # Trackbar gives int, metric can be float
-    save_config()
+    # save_config() # Removed to prevent lag; will save on exit
 
 def on_time_thresh_trackbar(val):
     global current_time_threshold_seconds
     current_time_threshold_seconds = float(val) # Trackbar gives int
-    save_config()
+    # save_config() # Removed to prevent lag; will save on exit
 
 # --- Main Application Logic ---
 def main():
@@ -188,6 +188,7 @@ def main():
             break
 
     print("Releasing resources...")
+    save_config() # Save final configuration before exiting
     cap.release()
     cv2.destroyAllWindows()
     if 'face_mesh' in globals() and face_mesh is not None: # Check if face_mesh was initialized
