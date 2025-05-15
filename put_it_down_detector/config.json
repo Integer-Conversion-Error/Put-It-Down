@@ -1,4 +1,5 @@
 {
     "pitch_threshold": 90.0,
-    "time_threshold_seconds": 5.0
+    "time_threshold_seconds": 2.0,
+    "pitch_smoothing_window_seconds": 0.5
 }
